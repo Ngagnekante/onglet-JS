@@ -1,0 +1,51 @@
+<HTML>
+    <HEAD>
+    <style>
+    .TabCommon {FONT: 18px Verdana; COLOR: #6D6D6D; PADDING: 5px; FONT-WEIGHT: bold; TEXT-ALIGN: center; HEIGHT: 30px; WIDTH: 100px;}
+    .TabContent {PADDING: 5px;}
+    .TabContentBottom {PADDING: 10px; BORDER-BOTTOM: 2px outset #99ccff;}
+    .TabOff {CURSOR: hand; BACKGROUND-COLOR: #E2E2E3; BORDER-LEFT: 1px solid #BBBBBB;}
+    .TabOn {CURSOR: default; BORDER-TOP: 2px outset #D1D1D1; COLOR: #000000;}
+    .TabBorderBottom{BORDER-BOTTOM: 2px inset #D1D1D1;}
+    .TabActiveBorderLeftRight{BORDER-RIGHT: 2px outset #D1D1D1; BORDER-LEFT: 2px outset #D1D1D1;}
+    .TabActiveBackground {BACKGROUND-COLOR: #F7F8F3;}
+    </style>
+    <script>
+    function TabClick( nTab ){
+        Col = document.getElementsByName("Content");
+        for (i = 0; i < document.getElementsByName("Content").length; i++)
+            {
+            document.getElementsByName("tabs")[i].className = "TabBorderBottom TabCommon TabOff";
+            document.getElementsByName("Content")[i].style.display = "none";
+            }
+        document.getElementsByName("Content")[nTab].style.display = "block";	
+        document.getElementsByName("tabs")[nTab].className = "TabCommon TabOn TabActiveBackground TabActiveBorderLeftRight";
+    }
+    </script>
+    </HEAD>
+    <BODY onload="TabClick(0);">
+    
+               
+      <TABLE CELLPADDING=0 CELLSPACING=0 ALIGN="center" STYLE="width: 450px">
+          <TR>
+              <TD CLASS="TabBorderBottom TabCommon TabOff" ID="tabs" NAME="tabs" ONCLICK="TabClick(0);"><NOBR>Onglet 1</NOBR></TD>
+              <TD CLASS="TabBorderBottom TabCommon TabOff" ID="tabs" NAME="tabs" ONCLICK="TabClick(1);"><NOBR>Onglet 2</NOBR></TD>
+              <TD CLASS="TabBorderBottom TabCommon TabOff" ID="tabs" NAME="tabs" ONCLICK="TabClick(2);"><NOBR>Onglet 3</NOBR></TD>
+              <TD CLASS="TabBorderBottom TabCommon TabOff" ID="tabs" NAME="tabs" ONCLICK="TabClick(3);"><NOBR>Onglet 4 ...</NOBR></TD>
+            <TD CLASS="TabBorderBottom" STYLE="width: 50px;"> </TD>
+          </TR>
+          <TR>
+              <TD COLSPAN=5 CLASS="TabContent TabActiveBackground TabActiveBorderLeftRight">Texte commun   </TD>
+          </TR>
+          <TR>
+              <TD COLSPAN=5 CLASS="TabContent TabActiveBackground TabActiveBorderLeftRight TabContentBottom">     
+             <DIV ID="Content" NAME="Content">contenu Onglet 1</DIV>
+             <DIV ID="Content" NAME="Content">contenu Onglet 2</DIV>
+             <DIV ID="Content" NAME="Content">contenu Onglet 3</DIV>
+             <DIV ID="Content" NAME="Content">contenu Onglet 4</DIV>
+          </TD>
+          </TR>
+      </TABLE>
+    
+    </BODY>
+    </HTML>
